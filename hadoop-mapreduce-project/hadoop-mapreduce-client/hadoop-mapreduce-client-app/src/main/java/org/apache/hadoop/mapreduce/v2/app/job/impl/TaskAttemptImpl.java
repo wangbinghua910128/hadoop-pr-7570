@@ -2009,9 +2009,8 @@ public abstract class TaskAttemptImpl implements
       taskAttempt.trackerName = nodeHttpInetAddr.getHostName();
       taskAttempt.httpPort = nodeHttpInetAddr.getPort();
       taskAttempt.sendLaunchedEvents();
-      taskAttempt.eventHandler.handle
-          (new SpeculatorEvent
-              (taskAttempt.attemptId, true, taskAttempt.clock.millis()));
+      taskAttempt.eventHandler.handle(
+          new SpeculatorEvent(taskAttempt.attemptId, true, taskAttempt.clock.millis()));
       //make remoteTask reference as null as it is no more needed
       //and free up the memory
       taskAttempt.remoteTask = null;
@@ -2441,10 +2440,8 @@ public abstract class TaskAttemptImpl implements
       taskAttempt.eventHandler.handle(new TaskTAttemptEvent(
           taskAttempt.attemptId,
           TaskEventType.T_ATTEMPT_SUCCEEDED));
-      taskAttempt.eventHandler.handle
-          (new SpeculatorEvent
-              (taskAttempt.reportedStatus, taskAttempt.clock.millis()));
-
+      taskAttempt.eventHandler.handle(
+          new SpeculatorEvent(taskAttempt.reportedStatus, taskAttempt.clock.millis()));
     }
   }
 
@@ -2512,9 +2509,8 @@ public abstract class TaskAttemptImpl implements
       taskAttempt.reportedStatus.taskState = taskAttempt.getState();
 
       // send event to speculator about the reported status
-      taskAttempt.eventHandler.handle
-          (new SpeculatorEvent
-              (taskAttempt.reportedStatus, taskAttempt.clock.millis()));
+      taskAttempt.eventHandler.handle(
+          new SpeculatorEvent(taskAttempt.reportedStatus, taskAttempt.clock.millis()));
       taskAttempt.updateProgressSplits();
       //if fetch failures are present, send the fetch failure event to job
       //this only will happen in reduce attempt type

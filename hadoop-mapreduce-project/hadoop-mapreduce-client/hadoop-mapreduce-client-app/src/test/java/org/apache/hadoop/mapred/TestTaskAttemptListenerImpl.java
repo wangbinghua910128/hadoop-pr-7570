@@ -344,7 +344,7 @@ public class TestTaskAttemptListenerImpl {
 
     // verify commit allowed when RM heartbeat is recent
     when(rmHeartbeatHandler.getLastHeartbeatTime())
-      .thenReturn(clock.millis());
+        .thenReturn(clock.millis());
     canCommit = listener.canCommit(tid);
     assertTrue(canCommit);
     verify(mockTask, times(1)).canCommit(any(TaskAttemptId.class));

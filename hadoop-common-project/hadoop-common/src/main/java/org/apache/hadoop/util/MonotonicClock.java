@@ -31,7 +31,7 @@ import org.apache.hadoop.classification.InterfaceStability.Evolving;
  */
 @Public
 @Evolving
-public class MonotonicClock extends AbstractClock {
+public final class MonotonicClock extends AbstractClock {
 
   private MonotonicClock() {
   }

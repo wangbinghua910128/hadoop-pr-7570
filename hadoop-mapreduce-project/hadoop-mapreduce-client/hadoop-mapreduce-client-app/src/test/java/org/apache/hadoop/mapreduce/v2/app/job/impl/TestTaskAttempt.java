@@ -1044,9 +1044,9 @@ public class TestTaskAttempt{
     setupTaskAttemptFinishingMonitor(eventHandler, jobConf, appCtx);
 
     TaskAttemptImpl taImpl =
-      new MapTaskAttemptImpl(taskId, 1, eventHandler, jobFile, 1,
-      splits, jobConf, taListener,mock(Token.class), new Credentials(),
-      Clock.systemUTC(), appCtx);
+        new MapTaskAttemptImpl(taskId, 1, eventHandler, jobFile, 1,
+            splits, jobConf, taListener, mock(Token.class), new Credentials(),
+            Clock.systemUTC(), appCtx);
 
     NodeId nid = NodeId.newInstance("127.0.0.1", 0);
     ContainerId contId = ContainerId.newContainerId(appAttemptId, 3);

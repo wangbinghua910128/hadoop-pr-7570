@@ -658,8 +658,9 @@ public class TestRuntimeEstimators {
     private float getMapProgress() {
       float runtime = getCodeRuntime();
 
-      return Math.min
-          ((float) (clock.millis() - startMockTime) / (runtime * 1000.0F), 1.0F);
+      return Math.min(
+          (float) (clock.millis() - startMockTime) / (runtime * 1000.0F),
+          1.0F);
     }
 
     private float getReduceProgress() {
@@ -680,10 +681,9 @@ public class TestRuntimeEstimators {
       if (numberMaps == numberDoneMaps) {
         shuffleCompletedTime = Math.min(shuffleCompletedTime, clock.millis());
 
-        return Math.min
-            ((float) (clock.millis() - shuffleCompletedTime)
-                        / (runtime * 2000.0F) + 0.5F,
-             1.0F);
+        return Math.min(
+            (float) (clock.millis() - shuffleCompletedTime) / (runtime * 2000.0F) + 0.5F,
+            1.0F);
       } else {
         return ((float) numberDoneMaps) / numberMaps * 0.5F;
       }
@@ -815,11 +815,11 @@ public class TestRuntimeEstimators {
 
   class MyAppMaster extends CompositeService {
     final Clock clock;
-      public MyAppMaster(Clock clock) {
-        super(MyAppMaster.class.getName());
-        if (clock == null) {
-          clock = Clock.systemUTC();
-        }
+    public MyAppMaster(Clock clock) {
+      super(MyAppMaster.class.getName());
+      if (clock == null) {
+        clock = Clock.systemUTC();
+      }
       this.clock = clock;
       LOG.info("Created MyAppMaster");
     }
