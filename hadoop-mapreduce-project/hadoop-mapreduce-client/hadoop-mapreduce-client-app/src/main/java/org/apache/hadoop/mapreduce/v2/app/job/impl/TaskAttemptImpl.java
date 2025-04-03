@@ -2446,7 +2446,7 @@ public abstract class TaskAttemptImpl implements
   }
 
   /**
-   * Transition to FAIL_FINISHING_CONTAINER upon receiving TA_FAILMSG event
+   * Transition to FAIL_FINISHING_CONTAINER upon receiving TA_FAILMSG event.
    */
   private static class MoveContainerToFailedFinishingTransition implements
       SingleArcTransition<TaskAttemptImpl, TaskAttemptEvent> {

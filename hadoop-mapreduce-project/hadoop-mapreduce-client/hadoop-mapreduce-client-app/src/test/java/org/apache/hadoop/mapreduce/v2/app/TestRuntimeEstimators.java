@@ -815,7 +815,7 @@ public class TestRuntimeEstimators {
 
   class MyAppMaster extends CompositeService {
     final Clock clock;
-    public MyAppMaster(Clock clock) {
+    MyAppMaster(Clock clock) {
       super(MyAppMaster.class.getName());
       if (clock == null) {
         clock = Clock.systemUTC();
